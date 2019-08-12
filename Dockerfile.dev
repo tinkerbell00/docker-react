@@ -1,0 +1,14 @@
+FROM node:alpine
+ENV http_proxy=http://dr90525:Paris1709@@proxy.internal.epo.org:8080
+ENV https_proxy=http://dr90525:Paris1709@@proxy.internal.epo.org:8080
+
+WORKDIR '/app'
+
+
+COPY package.json .
+
+RUN npm install 
+
+COPY . .
+
+CMD ["npm", "run", "start"]
